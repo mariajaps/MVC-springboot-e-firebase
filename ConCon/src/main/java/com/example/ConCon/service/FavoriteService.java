@@ -1,6 +1,18 @@
 package com.example.ConCon.service;
 
 import org.springframework.stereotype.Service;
+import com.example.ConCon.model.Favoritet;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
+import com.google.firebase.cloud.FirestoreClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @Service
 public class FavoriteService {
@@ -17,7 +29,7 @@ public List<Favorite> getFavorite(String nomeFavorite) throws ExecutionException
         favorite = document.toObject(Favorite.class);
         return Collections.singletonList(favorite);
     }
-    return Collections.emptyList();
+    return collections.emptyList();
 }
 
 public String createFavorite(Favorite favorite) throws ExecutionException, InterruptedException {
